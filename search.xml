@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>概率图模型</title>
+      <link href="/2021/08/29/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2021/08/29/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      <categories>
+          
+          <category> math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VAE</title>
       <link href="/2021/07/23/VAE/"/>
       <url>/2021/07/23/VAE/</url>
       
-        <content type="html"><![CDATA[<h2 id="从参数估计到VAE"><a href="#从参数估计到VAE" class="headerlink" title="从参数估计到VAE"></a>从参数估计到VAE</h2><p><del>还没开始写,先挖个坑</del></p><span id="more"></span>]]></content>
+        <content type="html"><![CDATA[<h1 id="VAE-变分自编码器"><a href="#VAE-变分自编码器" class="headerlink" title="VAE(变分自编码器)"></a>VAE(变分自编码器)</h1><h2 id="为什么需要VAE"><a href="#为什么需要VAE" class="headerlink" title="为什么需要VAE"></a>为什么需要VAE</h2><p><del>咕咕</del></p><span id="more"></span>]]></content>
       
       
       <categories>
