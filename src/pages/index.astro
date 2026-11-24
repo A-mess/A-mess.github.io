@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+
+const posts = Object.entries(import.meta.glob('./blog/*.md', { eager: true }))
+  .map(([path, mod]) => {
+    const { title, date, description, lang } = mod.frontmatter;
+    const slug = path.replace('./blog/', '/blog/').replace('.md', '/');
+    return { title, date: new Date(date), description, lang, slug };
+  })
+  .filter((p) => p.lang !== 'zh')
+  .sort((a, b) => b.date - a.date);
+---
+<Base title="" description="Amess's personal blog">
+  <section class="hero">
+    <blockquote>
+      <p><em>Science is the belief in the ignorance of experts.</em></p>
+      <cite>&mdash;&nbsp;Richard Feynman, <em>What is Science?</em> (1966)</cite>
+    </blockquote>
+  </section>
+
+  {posts.length > 0 && (
+    <>
+      <h2>Posts</h2>
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={post.slug}>{post.title}</a>
+            <div>
+              <span class="post-date">{post.date.toISOString().slice(0, 10)}</span>
+              <span>{post.description}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</Base>
+
+<style>
+  .hero { margin: 3rem 0 4rem; }
+  .hero blockquote {
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+    border-left: 2px solid #d4d4cc;
+  }
+  .hero blockquote p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.5;
+  }
+  .hero cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+</style>

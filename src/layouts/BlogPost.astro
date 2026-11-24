@@ -1,0 +1,29 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const isZh = frontmatter.lang === 'zh';
+---
+<Base title={frontmatter.title} description={frontmatter.description} lang={frontmatter.lang ?? 'en'}>
+  <article>
+    <h1>{frontmatter.title}</h1>
+    <p class="meta">{new Date(frontmatter.date).toISOString().slice(0, 10)}</p>
+    {frontmatter.translation && (
+      <p class="translation">
+        <a href={frontmatter.translation}>
+          {isZh ? 'This post is also available in English →' : '本文有中文版 →'}
+        </a>
+      </p>
+    )}
+    <slot />
+  </article>
+</Base>
+
+<style>
+  .translation {
+    font-size: 0.9rem;
+    margin: -1.25rem 0 2rem;
+  }
+  .translation a {
+    color: var(--accent);
+  }
+</style>
